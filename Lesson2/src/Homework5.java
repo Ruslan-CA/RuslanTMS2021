@@ -12,7 +12,7 @@ public class Homework5 {
 
     public static double calculateHypotenuse(int a, int b) {
         // a^{2}+b^{2}=c^{2}
-        int hypotenuse = (int) Math.sqrt((int) Math.pow(a, 2) + (int) Math.pow(b, 2));
+        double hypotenuse = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
         return hypotenuse;
     }
 }

@@ -19,7 +19,7 @@ public class Homework3 {
         for (int i = 0; i < array.length; i++) {
             sumValues = sumValues + array[i];
         }
-        average = sumValues / (array.length);
+        average = sumValues / array.length;
         return average;
     }
 }
