@@ -3,7 +3,6 @@ public class Main {
 
         String text = "Привет а \nв разных строках";
         System.out.println(text);
-
         System.out.println(Constants.LIMIT);
 
     }
