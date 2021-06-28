@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Homework {
     public static void main(String[] args) {
-        //Некоторые тесты для проверки задач.Можно также написать свои тесты.
+        //Некоторые тесты для проверки задач.Можно также написать свои тесты
         printArray();
         System.out.println(operation(1));
         System.out.println(operation(0));
