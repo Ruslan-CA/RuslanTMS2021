@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Homework {
     public static void main(String[] args) {
@@ -48,7 +49,7 @@ public class Homework {
             number++;
         } else if (number < 0) {
             number = number - 2;
-        } else if (number == 0) {
+        } else {
             number = 10;
         }
         return number;
@@ -61,8 +62,8 @@ public class Homework {
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
         int amountNumbers = 0; // количество не четных элементов массива
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i] % 2 - 1 == 0) {
+        for (int anInt : ints) {
+            if (anInt % 2 - 1 != 0) {
                 amountNumbers++;
             }
         }
@@ -79,17 +80,17 @@ public class Homework {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-        String devs = "";
-        int lastNumber = count % 10;
-        if (lastNumber == 1) {
-            devs = "программист";
-        } else if (lastNumber >= 2 & lastNumber <= 4) {
-            devs = "программиста";
-        } else if (lastNumber >= 5) {
-            devs = "программистов";
+        int c100 = count % 100; //120
+        int c10 = c100 % 10;
+        if (c100 >= 11 && c100 <= 19) {
+            System.out.println(count + " программистов");
+        } else if (c10 >= 2 && c10 <= 4) {
+            System.out.println(count + " программиста");
+        } else if (c10 == 1) {
+            System.out.println(count + " программист");
+        } else {
+            System.out.println(count + " программистов");
         }
-        String result = String.valueOf(count) + " " + devs;
-        System.out.println(result);
     }
 
     /**
@@ -113,29 +114,23 @@ public class Homework {
      * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
      */
     public static void calculateSumOfDiagonalElements() {
-        // Объявим локальные переменные для хранения значения сумм диагоналей слева на право и с права на лево
-        int sumDiagonalLeftRigt, sumDiagonalRigtLeft;
-        // Инициализируем локальные переменные для диапазона случайных чисел
-        int min = -300;
-        int max = 300;
-        int diapason = max + Math.abs(min) + 1;
-        // Создадим маленький двумерный массив
-        int[][] mas = new int[2][2];
-        // Запоняем ранее созданны массив случайными числами из заданнго диапазона и выведим его на консоль
-        for (int i = 0; i < 2; i++) {
-            for (int s = 0; s < 2; s++) {
-                mas[i][s] = (int) (Math.random() * diapason) - max;
-                System.out.print(mas[i][s]);
-                System.out.print(" ");
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        int[][] matrix = new int[size][size];
+        Random random = new Random();
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                int value = random.nextInt(100);
+                matrix[i][j] = value;
+                System.out.print(value + " ");
+                if (i == j) {
+                    sum += value;
+                }
             }
             System.out.println();
         }
-        // Т.к. длинна двумерного массива известна, по индексу получаем значения по диаганали
-        sumDiagonalLeftRigt = mas[0][0] + mas[1][1];
-        sumDiagonalRigtLeft = mas[0][1] + mas[1][0];
-        // Выводим на консоль значения сумм по диагоналям
-        System.out.println("Сумма элементов на диагонали с лева на право: " + String.valueOf(sumDiagonalLeftRigt));
-        System.out.println("Сумма элементов на диагонали с права на лево: " + String.valueOf(sumDiagonalRigtLeft));
+        System.out.println("Сумма = " + sum);
     }
 
 
@@ -163,7 +158,33 @@ public class Homework {
      */
     public static void printMatrix() {
         // тут пишем логику
-        // Посмотрю к следующему разу
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int height = scanner.nextInt();
+        int width = scanner.nextInt();
+
+        if (height > 0 & width > 0) {
+            int[][] matrix = new int[height][width];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j] = random.nextInt(100);
+                }
+            }
+            for (int[] row : matrix) {
+                for (int element : row) {
+                    if (element % 3 == 0) {
+                        System.out.print("+ ");
+                    } else if (element % 7 == 0) {
+                        System.out.print("- ");
+                    } else {
+                        System.out.print("* ");
+                    }
+                }
+                System.out.print("\n");
+            }
+        } else {
+            System.out.println("unavailable values");
+        }
     }
 
     /**
@@ -173,8 +194,21 @@ public class Homework {
      */
     public static void printPrimeNumbers() {
         // тут пишем логику
-        // Посмотрю к следующему разу
+        int count = 0;
+        for (int i = 2; i < 1000; i++) {
+            boolean isPrimeNumber = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+            if (isPrimeNumber) {
+                count++;
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        System.out.println(count);
     }
-
-
 }
