@@ -4,6 +4,7 @@ public class Homework {
     public static void main(String[] args) {
 
         // проверк заданий:
+
         amoebasCount();
         summ(2, 5);
         trianglesArray();
