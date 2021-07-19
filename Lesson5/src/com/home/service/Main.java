@@ -1,5 +1,5 @@
 package com.home.service;
-import com.home.model.Computer;
+import com.home.model.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,4 +8,5 @@ public class Main {
             computer1.on();
         }
     }
+
 }
