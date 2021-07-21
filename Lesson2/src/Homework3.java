@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 public class Homework3 {
     public static void main(String[] args) {
         System.out.println(average(new int[]{1, 2, 3, 4, 5}));
@@ -12,7 +10,7 @@ public class Homework3 {
      * (необходимо сумму всех элеменов массива разделить на длину массива)
      * Example: array = {1,2,3,4,5} Метод должен return 3.0
      */
-    public static double average(int @NotNull [] array) {
+    public static double average(int[] array) {
         int sumValues = 0;
         double average;
 
